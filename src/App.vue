@@ -1,27 +1,18 @@
 <template>
   <div class="container mt-5">
-    <!-- <multi-select label="Select Options:" :options="options" @selection-change="handleSelectionChange"></multi-select>
-    <div class="mt-3">
-      <h2>Selected Options:</h2>
-      <ul>
-        <li v-for="selectedItem in selectedItems" :key="selectedItem.id">{{ selectedItem.name }}</li>
-      </ul>
-    </div> -->
-    <multi-word v-model="selectedItems1" @selectionChanged="handleSelectionChange1" placeholder="slelect currency"
+    <multi-word v-model="selectedItems1" @selectionChanged="handleSelectionChange1" placeholder="select currency"
       label="Select Options:" :options="options"></multi-word>
     <multi-word v-model="selectedItems2" :isTags="true" @selectionChanged="handleSelectionChange2"
-      placeholder="slelect currency" label="Select Options:" :options="options"></multi-word>
+      placeholder="select currency" label="Select Options:" :options="options"></multi-word>
     <button @click="showValue">Select</button>
   </div>
 </template>
 
 <script>
-// import MultiSelect from './components/MultiSelect.vue';
 import MultiWord from './components/MultiWord.vue';
 
 export default {
   components: {
-    // MultiSelect,
     MultiWord
   },
   data() {

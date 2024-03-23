@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label>{{ label }}</label>
+    <label class="input-label">{{ label }}</label>
     <Multiselect v-if="isTags" @select="handleSelectionChange" @selection-change="handleSelectionChange"
       v-model="selectedOptions" mode='tags' :options="options" :placeholder="placeholder" />
     <Multiselect v-else v-model="selectedOptions" @select="handleSelectionChange"
@@ -9,7 +9,6 @@
 </template>
 <script>
 import Multiselect from '@vueform/multiselect'
-
 export default {
   components: {
     Multiselect,
@@ -45,5 +44,5 @@ export default {
   }
 }
 </script>
-
 <style src="@vueform/multiselect/themes/default.css"></style>
+<!-- https://github.com/vueform/multiselect  plugin link for further update-->
