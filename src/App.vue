@@ -1,19 +1,19 @@
 <template>
   <div class="container mt-5">
-    <multi-word v-model="selectedItems1" @selectionChanged="handleSelectionChange1" placeholder="select currency"
-      label="Select Options:" :options="options"></multi-word>
-    <multi-word v-model="selectedItems2" :isTags="true" @selectionChanged="handleSelectionChange2"
-      placeholder="select currency" label="Select Options:" :options="options"></multi-word>
+    <currency-option v-model="selectedItems1" @selectionChanged="handleSelectionChange1" placeholder="select currency"
+      label="Select Options:" :options="options"></currency-option>
+    <currency-option v-model="selectedItems2" :isTags="true" @selectionChanged="handleSelectionChange2"
+      placeholder="select currency" label="Select Options:" :options="options"></currency-option>
     <button @click="showValue">Select</button>
   </div>
 </template>
 
 <script>
-import MultiWord from './components/MultiWord.vue';
+import CurrencyOption from './components/CurrencyOption.vue';
 
 export default {
   components: {
-    MultiWord
+    CurrencyOption
   },
   data() {
     return {
