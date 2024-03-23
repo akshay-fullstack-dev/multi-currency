@@ -1,10 +1,10 @@
 <template>
   <div>
     <label class="input-label">{{ label }}</label>
-    <Multiselect v-if="isTags" @select="handleSelectionChange" @selection-change="handleSelectionChange"
-      v-model="selectedOptions" mode='tags' :options="options" :placeholder="placeholder" />
-    <Multiselect v-else v-model="selectedOptions" @select="handleSelectionChange"
-      @selection-change="handleSelectionChange" :options="options" :placeholder="placeholder" />
+    <Multiselect v-if="isTags" @select="handleSelectionChange" @clear="handleSelectionChange" @deselect="handleSelectionChange"
+      v-model="selectedOptions" mode='tags' :options="options"  :placeholder="placeholder" />
+    <Multiselect v-else v-model="selectedOptions" @select="handleSelectionChange" @deselect="handleSelectionChange"
+      :options="options" :placeholder="placeholder"  @clear="handleSelectionChange"/>
   </div>
 </template>
 <script>
