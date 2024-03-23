@@ -7,8 +7,10 @@
         <li v-for="selectedItem in selectedItems" :key="selectedItem.id">{{ selectedItem.name }}</li>
       </ul>
     </div> -->
-    <multi-word v-model="selectedItems"  @selection-change="handleSelectionChange" placeholder="slelect currency" label="Select Options:" :options="options"></multi-word>
-    <multi-word v-model="selectedItems" :isVisible="true"  @selection-change="handleSelectionChange" placeholder="slelect currency" label="Select Options:" :options="options"></multi-word>
+    <multi-word v-model="selectedItems1" @selectionChanged="handleSelectionChange1" placeholder="slelect currency"
+      label="Select Options:" :options="options"></multi-word>
+    <multi-word v-model="selectedItems2" :isTags="true" @selectionChanged="handleSelectionChange2"
+      placeholder="slelect currency" label="Select Options:" :options="options"></multi-word>
     <button @click="showValue">Select</button>
   </div>
 </template>
@@ -25,22 +27,26 @@ export default {
   data() {
     return {
       options: [
-        { id: 1, value: 'Option 1', label: 'Option 1' },
-        { id: 2, value: 'Option 2', label: 'Option 2' },
-        { id: 3, value: 'Option 3', label: 'Option 3' },
-        { id: 4, value: 'Option 4', label: 'Option 4' },
-        { id: 5, value: 'Option 5', label: 'Option 5' }
+        {value: '1', label: 'Option 1' },
+        {value: '3', label: 'Option 3' },
+        {value: '2', label: 'Option 2' },
+        {value: '4', label: 'Option 4' },
+        {value: '5', label: 'Option 5' }
       ],
-      selectedItems: []
+      selectedItems1: [],
+      selectedItems2: []
     };
   },
   methods: {
-    handleSelectionChange(selectedItems) {
-      this.selectedItems = selectedItems;
-      console.log(this.selectedItems)
+    handleSelectionChange1(selectedItems) {
+      this.selectedItems1 = selectedItems; // Update selected items for the first instance
+    },
+    handleSelectionChange2(selectedItems) {
+      this.selectedItems2 = selectedItems; // Update selected items for the second instance
     },
     showValue() {
-      console.log(this.selectedItems)
+      console.log(this.selectedItems1)
+      console.log(this.selectedItems2)
     }
 
   }

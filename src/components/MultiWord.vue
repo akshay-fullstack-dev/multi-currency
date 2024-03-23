@@ -1,8 +1,10 @@
 <template>
   <div>
     <label>{{ label }}</label>
-    <Multiselect v-if="isVisible" @selection-change="handleSelectionChange" v-model="selectedOptions"  mode='tags'  :options="options" :placeholder="placeholder" @input="handleChange" />
-    <Multiselect v-else v-model="selectedOptions" @selection-change="handleSelectionChange" :options="options" :placeholder="placeholder" @input="handleChange" />
+    <Multiselect v-if="isTags" @select="handleSelectionChange" @selection-change="handleSelectionChange"
+      v-model="selectedOptions" mode='tags' :options="options" :placeholder="placeholder" />
+    <Multiselect v-else v-model="selectedOptions" @select="handleSelectionChange"
+      @selection-change="handleSelectionChange" :options="options" :placeholder="placeholder" />
   </div>
 </template>
 <script>
@@ -25,9 +27,9 @@ export default {
       type: Array,
       required: true
     },
-    isVisible:{
-      type:Boolean,
-      required:false
+    isTags: {
+      type: Boolean,
+      required: false
     }
 
   },
@@ -37,8 +39,8 @@ export default {
     }
   },
   methods: {
-    handleChange() {
-      this.$emit('selection-change', this.selectedOptions); // Emit selected options
+    handleSelectionChange() {
+      this.$emit('selectionChanged', this.selectedOptions); // Emit selected options
     }
   }
 }
